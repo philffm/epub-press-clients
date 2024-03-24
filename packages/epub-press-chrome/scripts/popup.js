@@ -59,9 +59,10 @@ Settings Management
 */
 
 function setExistingSettings(cb) {
-    Browser.getLocalStorage(['email', 'filetype']).then((state) => {
+    Browser.getLocalStorage(['email', 'filetype', 'openai']).then((state) => {
         $('#settings-email-text').val(state.email);
         $('#settings-filetype-select').val(state.filetype);
+        $('#settings-openai-key').val(state.openai);
         cb();
     }).catch((error) => {
         UI.setErrorMessage(`Could not load settings: ${error}`);
@@ -76,6 +77,7 @@ $('#settings-btn').click(() => {
 
 $('#settings-save-btn').click(() => {
     Browser.setLocalStorage({
+        openai: $('#settings-openai-key').val(),
         email: $('#settings-email-text').val(),
         filetype: $('#settings-filetype-select').val(),
     });

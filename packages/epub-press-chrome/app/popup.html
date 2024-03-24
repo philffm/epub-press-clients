@@ -51,14 +51,24 @@
             <h1>Settings:</h1>
 
             <h3>Filetype</h3>
-            <select id="settings-filetype-select">
+            <!-- default: epub -->
+        
+            <select id="settings-filetype-select"> 
                 <option value='epub'>.epub</option>
                 <option value='mobi'>.mobi (Kindle)</option>
             </select>
-
+            
             <h3>Delivery Email</h3>
             <input id="settings-email-text" type="text" placeholder="Email">
-
+            
+            <!-- OpenAI API Key -->
+            <h3>OpenAI API Key</h3>
+            <input id="settings-openai-key" type="text" placeholder="API Key">
+            
+            <!-- Custom prompt -->
+            <h3>Custom Prompt</h3>
+            <input id="settings-custom-prompt" type="text" placeholder="Summarize the article...">
+            
             <div class="btn-box">
                 <button id="settings-save-btn" class="btn-left">Save</button>
                 <button id="settings-cancel-btn" class="btn-right">Cancel</button>

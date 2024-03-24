@@ -18016,9 +18016,10 @@ Settings Management
 */
 
 function setExistingSettings(cb) {
-  _browser__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].getLocalStorage(['email', 'filetype']).then(state => {
+  _browser__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].getLocalStorage(['email', 'filetype', 'openai']).then(state => {
     jquery__WEBPACK_IMPORTED_MODULE_1___default()('#settings-email-text').val(state.email);
     jquery__WEBPACK_IMPORTED_MODULE_1___default()('#settings-filetype-select').val(state.filetype);
+    jquery__WEBPACK_IMPORTED_MODULE_1___default()('#settings-openai-key').val(state.openai);
     cb();
   }).catch(error => {
     _ui__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"].setErrorMessage(`Could not load settings: ${error}`);
@@ -18032,6 +18033,7 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()('#settings-btn').click(() => {
 });
 jquery__WEBPACK_IMPORTED_MODULE_1___default()('#settings-save-btn').click(() => {
   _browser__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].setLocalStorage({
+    openai: jquery__WEBPACK_IMPORTED_MODULE_1___default()('#settings-openai-key').val(),
     email: jquery__WEBPACK_IMPORTED_MODULE_1___default()('#settings-email-text').val(),
     filetype: jquery__WEBPACK_IMPORTED_MODULE_1___default()('#settings-filetype-select').val()
   });
